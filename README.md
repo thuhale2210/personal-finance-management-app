@@ -3,7 +3,7 @@
 ### Introduction:
 This app is intended to perform a range of financial tracking features, including expense tracking, income monitoring, budgeting tools, and data visualizations to help users gain insights into their financial health
 
-![goldenpig](https://github.com/thuhale2210/Personal-Finance-Management-app/assets/120136659/e40be36c-0548-4f69-81fe-b87ce429bc63)
+
 
 <i>Please note that this project is currently in progress</i>
 
