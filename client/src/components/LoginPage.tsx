@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import React, { useEffect } from "react";
 import Link from "next/link";
@@ -85,7 +85,7 @@ const LoginPage = () => {
                             onChange={formik.handleChange}
                         />
                         {/* <ErrorMessage className="text-red-500 text-xs" name="password" component="div" /> */}
-                        <Link href="/dashboard" className="w-full">
+                        <Link href="/home" className="w-full">
                             <button type="submit" className="bg-primary-yellow hover:font-bold opacity-75 hover:opacity-100 duration-200 w-full rounded-2xl p-3 my-3">
                                 Login
                             </button>

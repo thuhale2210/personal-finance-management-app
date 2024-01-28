@@ -2,12 +2,17 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NavLinks } from '@/constants'
-import AuthProvider from './AuthProvider'
-import { getCurrentUser } from '@/lib/session'
+import { useSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
+import UserCard from '../components/UserCard'
 
-const SideBar = async () => {
-    const session = await getCurrentUser();
-
+const SideBar = () => {
+    const { data: session } = useSession({
+        required: true,
+        onUnauthenticated() {
+            redirect('/api/auth/signin?callbackUrl=/client')
+        }
+    })
     return (
         <aside className='text-light-white-100 h-full relative'>
             <Link href='/'>
@@ -16,15 +21,15 @@ const SideBar = async () => {
                     width={150}
                     height={75}
                     alt='Logo'
-                    className='mt-10 ml-10'
+                    className='mt-7 ml-7'
                     priority={true}
                 />
             </Link>
 
-            <ul className='xl:grid md:grid sm:hidden xs:hidden text-left gap-[50px] mt-[50px] ml-10'>
+            <ul className='xl:grid md:grid sm:hidden xs:hidden text-left gap-[50px] mt-[50px] ml-7 text-primary-white'>
                 {NavLinks.map((section) => (
                     <Link href={section.href} key={section.key}>
-                        <li>
+                        <li className='my-10'>
                             <Image
                                 src={section.logo}
                                 width={25}
@@ -39,22 +44,8 @@ const SideBar = async () => {
                 ))}
             </ul>
 
-            <div className='bg-primary-gray absolute rounded-[25px] m-10 bottom-0 h-[200px] w-2/3'>
-                {session?.user ? (
-                    <>
-                        {session?.user?.image && (
-                            <Image
-                                src={session.user.image}
-                                width={40}
-                                height={40}
-                                alt={session.user.name}
-                                className='rounded-full' />)}
-                        {session?.user?.name && <p className='text-center'>{session.user.name}</p>}
-                        Financial Goal
-                    </>
-                ) : (
-                    <AuthProvider />
-                )}
+            <div className='bg-primary-gray absolute rounded-[25px] m-7 bottom-0 h-[200px] w-3/4'>
+                <UserCard user={session?.user} pagetype={"Client"} />
             </div>
         </aside>
     )
