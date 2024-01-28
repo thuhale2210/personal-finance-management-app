@@ -7,7 +7,7 @@
         "sourceMap": true,
         "outDir": "dist"
     },
-    "include": ["src/**/*"],
+    "include": ["app.ts", "routes", "models", "controllers"],
     "exclude": ["dist"],
     "lib": ["es2015"]
 }

@@ -64,7 +64,7 @@ readdirSync('./routes').map((route) => app.use('/', require('./routes/' + route)
 // Connect to MongoDB
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URL);
 
 const connection = mongoose.connection;
 
