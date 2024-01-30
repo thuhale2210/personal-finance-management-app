@@ -15,9 +15,9 @@ const authOptions: NextAuthOptions = {
                 password: { label: "Password", type: "password", placeholder: "Your Password" },
             },
             async authorize(credentials) {
-                const user = {id: "01", name: "Hannah", password: "testingpassword"}
+                const user = { id: "01", username: "hannahtesting2210@gmail.com", password: "pass" }
 
-                if (credentials?.username === user.name && credentials?.password === user.password) {
+                if (credentials?.username === user.username && credentials?.password === user.password) {
                     return user
                 } else {
                     return null
@@ -25,6 +25,9 @@ const authOptions: NextAuthOptions = {
             }
         })
     ],
+    pages: {
+        signIn: "/signin",
+    },
 }
 
 export default authOptions
