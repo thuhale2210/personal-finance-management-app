@@ -15,7 +15,7 @@ const SideBar = () => {
     })
     return (
         <aside className='text-light-white-100 h-full relative'>
-            <Link href='/'>
+            <Link href='/home'>
                 <Image
                     src='/goldenpiglogo.png'
                     width={150}
@@ -26,7 +26,7 @@ const SideBar = () => {
                 />
             </Link>
 
-            <ul className='xl:grid md:grid sm:hidden xs:hidden text-left gap-[50px] mt-[50px] ml-7 text-primary-white'>
+            <ul className='text-left gap-[50px] mt-[50px] ml-7 text-primary-white'>
                 {NavLinks.map((section) => (
                     <Link href={section.href} key={section.key}>
                         <li className='my-10'>
@@ -36,15 +36,15 @@ const SideBar = () => {
                                 height={25}
                                 alt={section.key}
                                 priority={true}
-                                className='float-left mr-[25px]'
+                                className='float-left mr-[25px] tabletBelow:py-5'
                             />
-                            {section.text}
+                            <div className='tabletBelow:hidden'>{section.text}</div>
                         </li>
                     </Link>
                 ))}
             </ul>
 
-            <div className='bg-primary-gray absolute rounded-[25px] m-7 bottom-0 h-[200px] w-3/4'>
+            <div className='mobileBelow:hidden bg-primary-gray absolute rounded-[25px] m-7 bottom-0 h-[200px] w-3/4'>
                 <UserCard user={session?.user} pagetype={"Client"} />
             </div>
         </aside>

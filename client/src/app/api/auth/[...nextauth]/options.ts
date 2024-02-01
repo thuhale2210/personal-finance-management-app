@@ -18,8 +18,10 @@ const authOptions: NextAuthOptions = {
                 const user = { id: "01", username: "hannahtesting2210@gmail.com", password: "pass" }
 
                 if (credentials?.username === user.username && credentials?.password === user.password) {
+                    console.log("Correct credentials")
                     return user
                 } else {
+                    console.log("Incorrect credentials")
                     return null
                 }
             }
