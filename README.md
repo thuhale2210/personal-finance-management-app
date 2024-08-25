@@ -3,7 +3,7 @@
 ### Introduction:
 This app is intended to perform a range of financial tracking features, including expense tracking, income monitoring, budgeting tools, and data visualizations to help users gain insights into their financial health.
 
-<i>Please note that this project is currently in progress. Do not consider any code saved in this repo since it doesn't contain the latest version.</i>
+<i>Please note that this project is currently in progress. Do not consider any code saved in this repo since it isn't updated with the latest version.</i>
 
 ### UI Demo:
 ![Screenshot 2024-08-25 at 1 59 03 PM](https://github.com/user-attachments/assets/0b959c9b-4639-4fed-89fe-199c2b296180)
